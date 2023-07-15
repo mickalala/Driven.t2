@@ -7,7 +7,7 @@ import { CreateTicketParams } from '@/protocols';
 async function getTicketType(): Promise<TicketType[]> {
   const ticketTypes: TicketType[] = await ticketsRepository.findTicketTypes();
   if (!ticketTypes) throw notFoundError();
-
+  
   return ticketTypes;
 }
 
