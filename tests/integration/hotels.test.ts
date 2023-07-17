@@ -90,7 +90,11 @@ describe('GET /hotels/:hotelId', () => {
 
 describe('when token is valid', () => {
 
-    it('', () => {
+    it('should respond with status 400 when received id is NaN', async () => {
+        const token = await generateValidToken();
 
+        const response = await server.get('/hotels/randomString').set('Authorization', `Bearer ${token}`);
+
+        expect(response.status).toBe(httpStatus.BAD_REQUEST);
     })
 })
